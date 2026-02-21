@@ -1,0 +1,201 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Patient Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* ================= SIDEBAR ================= */
+        .sidebar {
+            height: 100vh;
+            width: 260px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            border-right: 4px solid #d4af37;
+            padding-top: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+            /* Scrollbar Styling */
+            .sidebar::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb {
+                background: #d4af37;
+                border-radius: 10px;
+            }
+
+            .sidebar h4 {
+                color: #d4af37;
+                font-weight: 700;
+            }
+
+            .sidebar a {
+                display: block;
+                padding: 12px 20px;
+                text-decoration: none;
+                color: #333;
+                font-weight: 500;
+                transition: 0.3s;
+                border-radius: 8px;
+            }
+
+                .sidebar a:hover {
+                    background-color: #d4af37;
+                    color: white;
+                    margin: 0 10px;
+                }
+
+            .sidebar small {
+                color: #d4af37;
+                font-weight: 600;
+                padding-left: 20px;
+            }
+
+        /* ================= CONTENT ================= */
+        .content {
+            margin-left: 260px;
+            padding: 25px;
+        }
+
+        /* ================= TOPBAR ================= */
+        .topbar {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            border-bottom: 3px solid #d4af37;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+            .topbar h5 {
+                color: #d4af37;
+                font-weight: 700;
+                margin: 0;
+            }
+
+        /* ================= CARDS ================= */
+        .card {
+            border-radius: 18px;
+            border: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card h5 {
+                color: #d4af37;
+                font-weight: 600;
+            }
+
+        /* ================= RESPONSIVE ================= */
+        @@media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <div class="sidebar">
+
+        <h4 class="text-center mb-4">🧑‍⚕️ Patient Panel</h4>
+
+        <!-- Dashboard -->
+        <a asp-controller="Patient" asp-action="Dashboard">🏠 Patient Dashboard</a>
+
+        <hr>
+
+        <small>📅 Appointments</small>
+        <a asp-controller="ManagePatients" asp-action="BookAppointment">🗓 Book Appointment</a>
+        <a asp-controller="Patient" asp-action="MyAppointments">📋 My Appointments</a>
+        <a asp-controller="Patient" asp-action="AppointmentConfirmation">✅ Appointment Confirmation</a>
+
+        <hr>
+
+        <small>📁 Medical Records</small>
+        <a asp-controller="Patient" asp-action="MedicalRecords">📄 Medical Records</a>
+        <a asp-controller="Patient" asp-action="PrescriptionHistory">💊 Prescription History</a>
+        <a asp-controller="Patient" asp-action="LabReport">🧪 Lab Report View</a>
+
+        <hr>
+
+        <small>💳 Billing</small>
+        <a asp-controller="Patient" asp-action="BillOverview">📊 Bill Overview</a>
+        <a asp-controller="Patient" asp-action="PayBill">💰 Pay Bill Online</a>
+       
+
+        <hr>
+
+        <small>💬 Communication</small>
+        <a asp-controller="Patient" asp-action="SecureMessaging">✉️ Secure Messaging</a>
+        <a asp-controller="Patient" asp-action="Feedback">⭐ Feedback / Survey</a>
+
+        <hr>
+
+        <small>👤 Profile</small>
+        <a asp-controller="Patient" asp-action="Profile">⚙️ Profile Management</a>
+
+        <hr>
+
+        <a asp-controller="HomePage" asp-action="Login" class="text-danger">🚪 Logout</a>
+
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="content">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h5>💛 Patient Portal</h5>
+            <div class="text-muted">
+                Welcome, Patient 👋
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div>
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

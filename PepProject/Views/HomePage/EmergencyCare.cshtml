@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "null";
+}
+
+<div class="container-fluid py-5" style="background: linear-gradient(to right, #ffffff, #f8f6ef); min-height:90vh;">
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">
+                🚨 <span style="color:#d4af37;">Emergency Medical Support</span>
+            </h1>
+            <p class="text-muted">Immediate assistance available 24/7</p>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+                    <!-- Top Emergency Strip -->
+                    <div class="text-center py-3" style="background-color:#d4af37; color:white;">
+                        <h5 class="mb-0 fw-bold">⚠️ CRITICAL EMERGENCY LINE ⚠️</h5>
+                    </div>
+
+                    <div class="card-body text-center p-5">
+
+                        <!-- SOS Circle -->
+                        <div class="sos-circle mx-auto mb-4">
+                            SOS
+                        </div>
+
+                        <h4 class="fw-bold mb-3 text-dark">
+                            Need Immediate Help?
+                        </h4>
+
+                        <p class="text-muted mb-4">
+                            Our emergency response team is ready to assist you anytime.
+                        </p>
+
+                        <!-- Big Phone Number -->
+                        <h2 class="fw-bold mb-4" style="color:#d4af37; letter-spacing:2px;">
+                            +91 98765 43210
+                        </h2>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                            <a href="tel:+919876543210"
+                               class="btn btn-lg px-4 rounded-pill"
+                               style="background-color:#d4af37; color:white;">
+                                📞 Call Emergency
+                            </a>
+
+                            <a href="#"
+                               class="btn btn-outline-warning btn-lg px-4 rounded-pill">
+                                📍 Share Location
+                            </a>
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Extra Info -->
+                        <div class="row text-start">
+
+                            <div class="col-md-6 mb-3">
+                                <h6 class="fw-bold" style="color:#d4af37;">🚑 Ambulance Service</h6>
+                                <p class="text-muted mb-0">Available 24 Hours</p>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <h6 class="fw-bold" style="color:#d4af37;">⏳ Average Arrival</h6>
+                                <p class="text-muted mb-0">10–12 Minutes</p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h6 class="fw-bold" style="color:#d4af37;">🏥 Emergency Ward</h6>
+                                <p class="text-muted mb-0">Ground Floor – Block A</p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h6 class="fw-bold" style="color:#d4af37;">🧑‍⚕️ On-Call Doctors</h6>
+                                <p class="text-muted mb-0">Cardiology | Trauma | ICU</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    .sos-circle {
+        width: 120px;
+        height: 120px;
+        background-color: #d4af37;
+        color: white;
+        font-weight: bold;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        animation: pulse 1.5s infinite;
+    }
+
+    @@keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+        }
+
+        70% {
+            box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
+        }
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+        }
+    }
+</style>

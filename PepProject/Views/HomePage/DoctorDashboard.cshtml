@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Doctor Dashboard";
+    Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+}
+
+<div class="row g-4 mt-2">
+
+    <div class="col-md-4">
+        <div class="dashboard-card text-center p-4">
+            <div class="icon-circle mb-3">
+                <i class="bi bi-calendar-check"></i>
+            </div>
+            <div class="card-title">Today's Appointments</div>
+            <h2 class="card-number">12</h2>
+            <small class="text-muted">Scheduled for today</small>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="dashboard-card text-center p-4">
+            <div class="icon-circle mb-3">
+                <i class="bi bi-exclamation-triangle"></i>
+            </div>
+            <div class="card-title">Patient Alerts</div>
+            <h2 class="card-number">3</h2>
+            <small class="text-muted">Requires attention</small>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="dashboard-card text-center p-4">
+            <div class="icon-circle mb-3">
+                <i class="bi bi-list-check"></i>
+            </div>
+            <div class="card-title">Pending Tasks</div>
+            <h2 class="card-number">5</h2>
+            <small class="text-muted">Awaiting completion</small>
+        </div>
+    </div>
+
+</div>

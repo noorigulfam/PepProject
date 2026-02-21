@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "AdminDashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mb-4">Admin Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body">
+                <h5>Total Doctors</h5>
+                @* <h2>@Model.TotalDoctors</h2> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body">
+                <h5>Total Patients</h5>
+                @* <h2>@Model.TotalPatients</h2> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-dark text-white shadow">
+            <div class="card-body">
+                <h5>Total Appointments</h5>
+                @* <h2>@Model.TotalAppointments</h2> *@
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<h4>Appointment Status</h4>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-warning text-dark shadow">
+            <div class="card-body">
+                <h5>Pending</h5>
+                @* <h3>@Model.TotalPending</h3> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body">
+                <h5>Approved</h5>
+                @* <h3>@Model.TotalApproved</h3> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-danger text-white shadow">
+            <div class="card-body">
+                <h5>Rejected</h5>
+                @* <h3>@Model.TotalRejected</h3> *@
+            </div>
+        </div>
+    </div>
+
+</div>
+

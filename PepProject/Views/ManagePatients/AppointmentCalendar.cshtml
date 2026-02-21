@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "AppointmentCalendar";
+    Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <h3 class="fw-bold text-warning mb-4">📅 Appointment Calendar</h3>
+
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body">
+
+            <h5 class="text-warning fw-semibold mb-3">
+                Today's Appointments
+            </h5>
+
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Time</th>
+                        <th>Patient Name</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:00 AM</td>
+                        <td>Ali Khan</td>
+                        <td>Fever & Cold</td>
+                        <td><span class="badge bg-success">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                        <td>12:30 PM</td>
+                        <td>Sara Ahmed</td>
+                        <td>Follow-up</td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>03:00 PM</td>
+                        <td>John Doe</td>
+                        <td>Checkup</td>
+                        <td><span class="badge bg-danger">Cancelled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+

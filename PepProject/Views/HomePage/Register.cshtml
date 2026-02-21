@@ -1,0 +1,259 @@
+﻿@using PepProject.Models
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Medical Management System - Register</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border-top: 6px solid #d4af37;
+            transition: 0.3s ease;
+        }
+
+            .register-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .gold-text {
+            color: #d4af37;
+        }
+
+        .form-control, .form-select {
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: #d4af37;
+                box-shadow: 0 0 0 0.15rem rgba(212,175,55,0.25);
+            }
+
+        .btn-gold {
+            background: linear-gradient(45deg, #d4af37, #b8962e);
+            color: white;
+            border-radius: 12px;
+            font-weight: 500;
+            padding: 10px;
+        }
+
+            .btn-gold:hover {
+                opacity: 0.9;
+                color: white;
+            }
+
+        .section-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid #eee;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .section-title {
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .login-link a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-box {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card register-card p-4">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold gold-text">Create Account</h3>
+            <p class="text-muted">Medical Management System</p>
+        </div>
+
+        <form asp-action="Register" method="post">
+
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input class="form-control" asp-for="FullName" placeholder="Enter full name" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" asp-for="Email" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" asp-for="Password" placeholder="Enter password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-select" asp-for="Gender">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+            <!-- Role -->
+            <div class="mb-3">
+                <label class="form-label">Role</label>
+                <select class="form-select" asp-for="Role" id="roleSelect">
+                    <option value="">-- Select Role --</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Patient">Patient</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <!-- Patient Section -->
+            <div id="patientSection" class="section-box mb-3 d-none">
+                <div class="section-title">Patient Details</div>
+
+                <div class="mb-2">
+                    <input type="number" class="form-control" asp-for="Age" placeholder="Age" />
+                </div>
+
+                <div>
+                    <textarea class="form-control" asp-for="Address" rows="2" placeholder="Address"></textarea>
+                </div>
+            </div>
+
+            <!-- Doctor Section -->
+            <div id="doctorSection" class="section-box mb-3 d-none">
+                <div class="section-title">Doctor Details</div>
+
+                <div class="mb-2">
+                    <input class="form-control" asp-for="Specialization" placeholder="Specialization" />
+                </div>
+
+                <div>
+                    <input type="number" class="form-control" asp-for="Experience" placeholder="Experience (Years)" />
+                </div>
+            </div>
+
+            <!-- Admin Section -->
+            <div id="adminSection" class="section-box mb-3 d-none">
+                <div class="section-title">Admin Details</div>
+                <input class="form-control" asp-for="Department" placeholder="Department" />
+            </div>
+
+            <div class="d-grid mb-3">
+                <input type="submit" value="Sign Up" class="btn btn-gold" />
+            </div>
+
+            <div class="text-center login-link">
+                <small>
+                    Already have an account?
+                    <a asp-controller="HomePage" asp-action="Login">Login</a>
+                </small>
+            </div>
+
+            <div class="text-center mt-3">
+                <small class="text-muted">© 2026 Medical Management System</small>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Dynamic Role Script -->
+    <script>
+        const roleSelect = document.getElementById("roleSelect");
+        const patientSection = document.getElementById("patientSection");
+        const doctorSection = document.getElementById("doctorSection");
+        const adminSection = document.getElementById("adminSection");
+
+        function toggleSections() {
+
+            patientSection.classList.add("d-none");
+            doctorSection.classList.add("d-none");
+            adminSection.classList.add("d-none");
+
+            if (roleSelect.value === "Patient") {
+                patientSection.classList.remove("d-none");
+            }
+            else if (roleSelect.value === "Doctor") {
+                doctorSection.classList.remove("d-none");
+            }
+            else if (roleSelect.value === "Admin") {
+                adminSection.classList.remove("d-none");
+            }
+        }
+
+        roleSelect.addEventListener("change", toggleSections);
+
+        // Run on page load
+        toggleSections();
+    </script>
+
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

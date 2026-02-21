@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PepProject.Models.BookingDoctorModel>
+
+@{
+    ViewData["Title"] = "AllAppointments";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Appointments</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Doctor</th>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DoctorName</td>
+                <td>@item.PatientName</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.Status</td>
+                <td>
+                    @if (item.Status == "Pending")
+                    {
+                        <a asp-action="Approve"
+                           asp-route-id="@item.ID"
+                           class="btn btn-success btn-sm">
+                            Approve
+                        </a>
+
+                        <a asp-action="Reject"
+                           asp-route-id="@item.ID"
+                           class="btn btn-danger btn-sm">
+                            Reject
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No Action</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
