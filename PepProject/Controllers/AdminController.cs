@@ -56,5 +56,9 @@ namespace PepProject.Controllers
 
             return RedirectToAction("AllAppointments");
         }
+
+        public IActionResult Test() {
+            return View();
+        }
     }
 }
